@@ -1,4 +1,4 @@
-class Oulipo
+module Oulipo
   ALPHABET = 'a'..'z'
   VOWELS = %w{ a e i o u }
   
