@@ -1,3 +1,5 @@
+require 'oulipo/word_list'
+
 module Oulipo
   ALPHABET = 'a'..'z'
   VOWELS = %w{ a e i o u }
