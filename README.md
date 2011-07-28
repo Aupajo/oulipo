@@ -63,8 +63,6 @@ Oulipo.palindrome?('Eva, can I stab bats in a cave?') # => true
 
 ## Chaterisms
 
-Oulipo knows about Chaterisms.
-
 A chaterism is a poem where either each successive word in the poem grows by one letter (also known as "snowball poem") or shrinks by one letter.
 
 ```ruby
