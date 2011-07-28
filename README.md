@@ -1,8 +1,9 @@
 # Oulipo
 
-_Fun with words!_
+_String and dance._
 
 [Oulipo](http://en.wikipedia.org/wiki/Oulipo) is a gathering of writers and mathmeticians who seek to create works using constrained writing techniques.
+
 
 ## Lipograms and Pangrams
 
@@ -30,6 +31,17 @@ In contrast, a pangram uses all the letters of the alphabet (often seen jumping 
   sentence = 'Big fjords vex quick waltz nymph.'
   
   Oulipo.pangram?(sentence) # => true
+
+## Univocalims
+
+A univocalism is a poem written using only one type of vowel.
+
+  poem = <<-POEM
+    No cool monsoons blow soft on Oxford dons,
+    Orthodox, jog-trot, book-worm Solomons
+  POEM
+
+  Oulipo.univocalism?(poem) # => true
 
 ## Chaterisms
 

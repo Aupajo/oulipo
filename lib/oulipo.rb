@@ -2,20 +2,20 @@ class Oulipo
   ALPHABET = 'a'..'z'
   VOWELS = %w{ a e i o u }
   
-  def self.absent_letters(string)
-    present_letters = string.downcase.split('').uniq
+  def self.absent_letters(work)
+    present_letters = work.downcase.split('').uniq
     missing_letters = ALPHABET.to_a - present_letters
     missing_letters.empty? ? nil : missing_letters
   end
   
   # A pangram uses all letters
-  def self.pangram?(string)
-    self.absent_letters(string).nil?
+  def self.pangram?(work)
+    self.absent_letters(work).nil?
   end
   
   # A lipogram has missing letters
-  def self.lipogram?(string)
-    !self.pangram?(string)
+  def self.lipogram?(work)
+    !self.pangram?(work)
   end
   
   # In a chaterism, each successive word is larger than the last or vice versa
@@ -30,6 +30,11 @@ class Oulipo
     # "The tree sings".map(&:length) # => [3, 4, 5] 
     # [3, 4, 5] == 3.upto(5).to_a # => true
     words.map(&:length) == flen.send(direction, llen).to_a
+  end
+  
+  def self.univocalism?(poem)
+    present_letters = poem.downcase.split('').uniq
+    (VOWELS - present_letters).length == 4
   end
   
   def self.snowball?(poem)
