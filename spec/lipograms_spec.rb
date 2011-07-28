@@ -13,7 +13,7 @@ describe "lipograms and pangrams" do
     performer.absent_letters(lipogram).should == %w{ b n w }
   end
   
-  it "can tell a pangram apart from a lipogram" do
+  it "can tell a pangram from a lipogram" do
     performer.lipogram?(lipogram).should == true
     performer.lipogram?(pangram).should == false
     
