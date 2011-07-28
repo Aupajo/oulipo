@@ -46,4 +46,24 @@ class Oulipo
     sequence = phrase.downcase.gsub(/[^a-z]/, '')
     sequence.reverse == sequence
   end
+  
+  def self.alliteration?(phrase, options = {})
+    threshold = options.delete(:threshold) || 1
+    self.alliterativity(phrase) >= threshold
+  end
+  
+  # Calculate an alliteration score
+  def self.alliterativity(phrase)
+    words = phrase.downcase.gsub(/[^a-z\s]/, '').split
+    leading_letters = words.map(&:chr)
+    
+    leading_letter_counts = leading_letters.inject({}) do |result, letter|
+      result[letter] ||= 0
+      result[letter] += 1
+      result
+    end
+    
+    most_used_count = leading_letter_counts.max_by { |kv| kv.last }.pop
+    most_used_count.to_f / words.length
+  end
 end
