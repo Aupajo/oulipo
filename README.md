@@ -2,8 +2,11 @@
 
 _String and dance._
 
-[Oulipo](http://en.wikipedia.org/wiki/Oulipo) is a gathering of writers and mathmeticians who seek to create works using constrained writing techniques.
+Oulipo gives you tools to write constrained stories and poems with Ruby.
 
+It's still young, and very much liable to change.
+
+The real [Oulipo](http://en.wikipedia.org/wiki/Oulipo) is a gathering of writers and mathmeticians who seek to create works using constrained writing techniques.
 
 ## Lipograms and Pangrams
 
@@ -24,7 +27,6 @@ In the following snippet of a poem, every letter of the alphabet except 'e' is u
   
   Oulipo.lipogram?(stanza)      # => true
   Oulipo.absent_letters(stanza) # => ['e']
-
 
 In contrast, a pangram uses all the letters of the alphabet (often seen jumping lazy dogs):
 
