@@ -8,6 +8,8 @@ It's still young, and very much liable to change.
 
 The real [Oulipo](http://en.wikipedia.org/wiki/Oulipo) is a gathering of writers and mathmeticians who seek to create works using constrained writing techniques.
 
+Install with `gem install oulipo`.
+
 ## Lipograms and Pangrams
 
 Oulipo can detect lipograms and pangrams.
