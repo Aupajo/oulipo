@@ -41,4 +41,9 @@ class Oulipo
     words = poem.split
     self.chaterism?(poem) && words.first.length < words.last.length
   end
+  
+  def self.palindrome?(phrase)
+    sequence = phrase.downcase.gsub(/[^a-z]/, '')
+    sequence.reverse == sequence
+  end
 end

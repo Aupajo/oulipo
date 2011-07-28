@@ -43,6 +43,12 @@ A univocalism is a poem written using only one type of vowel.
 
   Oulipo.univocalism?(poem) # => true
 
+## Palindromes
+
+Palindromes read the same way, backwards or forwards:
+
+  Oulipo.palindrome?('Eva, can I stab bats in a cave?') # => true
+
 ## Chaterisms
 
 Oulipo knows about Chaterisms.
