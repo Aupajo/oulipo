@@ -40,7 +40,7 @@ sentence = 'Big fjords vex quick waltz nymph.'
 Oulipo.pangram?(sentence) # => true
 ```
 
-## Univocalims
+## Univocalisms
 
 A univocalism is a poem written using only one type of vowel.
 
