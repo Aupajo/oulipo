@@ -1,4 +1,5 @@
 require 'oulipo/word_list'
+require 'oulipo/analyzer'
 
 module Oulipo
   ALPHABET = 'a'..'z'
