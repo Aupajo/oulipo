@@ -30,9 +30,9 @@ In the following snippet of a poem, every letter of the alphabet except 'e' is u
 
 In contrast, a pangram uses all the letters of the alphabet (often seen jumping lazy dogs):
 
-  sentence = 'Big fjords vex quick waltz nymph.'
+    sentence = 'Big fjords vex quick waltz nymph.'
   
-  Oulipo.pangram?(sentence) # => true
+    Oulipo.pangram?(sentence) # => true
 
 ## Univocalims
 
