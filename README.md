@@ -47,9 +47,9 @@ poem = <<-POEM
   No cool monsoons blow soft on Oxford dons,
   Orthodox, jog-trot, book-worm Solomons
 POEM
-```
 
 Oulipo.univocalism?(poem) # => true
+```
 
 ## Palindromes
 
