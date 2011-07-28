@@ -2,7 +2,7 @@
 
 _Fun with words!_
 
-[Oulipo](http://en.wikipedia.org/wiki/Oulipo) is a gathering of writers and mathmeticians who seek to create works using constrained writing techniques. 
+[Oulipo](http://en.wikipedia.org/wiki/Oulipo) is a gathering of writers and mathmeticians who seek to create works using constrained writing techniques.
 
 ## Lipograms and Pangrams
 
@@ -31,3 +31,26 @@ In contrast, a pangram uses all the letters of the alphabet (often seen jumping 
   
   Oulipo.pangram?(sentence) # => true
 
+## Chaterisms
+
+Oulipo knows about Chaterisms.
+
+A chaterism is a poem where either each successive word in the poem grows by one letter (also known as "snowball poem") or shrinks by one letter.
+
+  Oulipo.chaterism? 'Ruby loves poetry!'      # => true
+  Oulipo.chaterism? 'Poetry loves Ruby, too.' # => true
+  
+  poem = <<-WORDS  
+    
+    One
+    poem
+    grows,
+    author
+    watches,
+    helpless --
+    syllables
+    accumulate.
+    
+  WORDS
+  
+  Oulipo.snowball? poem # => true
