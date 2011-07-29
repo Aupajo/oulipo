@@ -59,7 +59,7 @@ Oulipo.n_plus(7, play, dictionary)  # => "What, jealous Oberon! Fallacies, skulk
  
 ```
 
-Oulipo includes a handy `WordList` class for reading one-word-per-line dictionary files, but a dictionary can be any object that responds to `index(word)`, `length`, and `[index]`, such as an array:
+Oulipo includes a handy `WordList` class for reading one-word-per-line dictionary files, but a dictionary can be any object that responds to `index(word)`, `length`, and `[index]`.
 
 ```ruby
 dictionary = %w{ iron gild mine gold ore paint cast lily }
@@ -69,7 +69,7 @@ king_john = 'To gild refined gold, to paint the lily'
 Oulipo.n_plus(1, king_john, dictionary) # => 'To mine refined ore, to cast the iron'
 ```
 
-See also: [Substitution](#Substitution).
+See also: Substitution.
 
 ## Univocalims
 
@@ -156,7 +156,7 @@ analysis.identified(:adjectives) # => ['sweet']
 
 ## Substitution
 
-Substitution can be performed on an [analysis](#Analysis).
+Substitution can be performed on an analysis.
 
 Carrying on from the example above:
 
@@ -167,4 +167,4 @@ substitutor.replace(:nouns).increment(1) # => "A bear by any other rose would sm
 
 ---
 
-Pete Nicholls ([@Aupajo](http://twitter.com/Aupajo))
+- Pete Nicholls ([@Aupajo](http://twitter.com/Aupajo))
