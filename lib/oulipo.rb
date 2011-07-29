@@ -1,5 +1,7 @@
+require 'oulipo/proxiable'
 require 'oulipo/word_list'
-require 'oulipo/analyzer'
+require 'oulipo/analysis'
+require 'oulipo/substitutor'
 
 module Oulipo
   ALPHABET = 'a'..'z'
@@ -68,5 +70,9 @@ module Oulipo
     
     most_used_count = leading_letter_counts.max_by { |kv| kv.last }.pop
     most_used_count.to_f / words.length
+  end
+  
+  def self.substitute_nouns(places, text, word_list)
+    
   end
 end
