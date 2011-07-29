@@ -31,7 +31,7 @@ module Oulipo
     end
     
     def identify(wordish)
-      return wordish if wordish.empty?
+      return wordish if wordish.strip.empty?
       
       word_lists.each do |type, list|
         return [wordish, type] if list.index(wordish.downcase)

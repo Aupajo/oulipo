@@ -38,11 +38,13 @@ module Oulipo
     
     def find_successor(word, num)
       # Find the current index and the limit
-      current_index = word_list.index(word)
+      current_index = word_list.index(word.downcase)
       limit = word_list.length
       
-      # Calculate the new index
-      word_list[(current_index + num) % limit]
+      # Calculate the successor's index, wrapping if we need to
+      successor = (current_index + num) % limit
+      
+      word_list[successor]
     end
     
   end
