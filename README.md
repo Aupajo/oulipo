@@ -40,37 +40,6 @@ sentence = 'Big fjords vex quick waltz nymph.'
 Oulipo.pangram?(sentence) # => true
 ```
 
-## N+7
-
-In N+7 (sometimes known as S+7), each noun in a text is replaced with the noun seven entries after it in a dictionary.
-
-```ruby
-dictionary = Oulipo::WordList.load('big_list_of_nouns.txt')
-
-play = <<-SHAKESPEARE
-
-  What, jealous Oberon! Fairies, skip hence:
-  I have forsworn his bed and company.
-  
-SHAKESPEARE
-
-Oulipo.n_plus(7, play, dictionary)  # => "What, jealous Oberon! Fallacies, skulk hence:
-                                    #     I have forsworn his bedroom and compensation."
- 
-```
-
-Oulipo includes a handy `WordList` class for reading one-word-per-line dictionary files, but a dictionary can be any object that responds to `index(word)`, `length`, and `[index]`.
-
-```ruby
-dictionary = %w{ iron gild mine gold ore paint cast lily }
-
-king_john = 'To gild refined gold, to paint the lily'
-
-Oulipo.n_plus(1, king_john, dictionary) # => 'To mine refined ore, to cast the iron'
-```
-
-See also: Substitution.
-
 ## Univocalims
 
 A univocalism is a poem written using only one type of vowel.
@@ -136,6 +105,35 @@ Oulipo.alleration?(phrase, :threshold => 0.7) # => true
 Oulipo.alleration?(phrase, :threshold => 0.9) # => false
 ```
 
+## N+7
+
+In N+7 (sometimes known as S+7), each noun in a text is replaced with the noun seven entries after it in a dictionary.
+
+```ruby
+dictionary = Oulipo::WordList.load('big_list_of_nouns.txt')
+
+play = <<-SHAKESPEARE
+
+  What, jealous Oberon! Fairies, skip hence:
+  I have forsworn his bed and company.
+  
+SHAKESPEARE
+
+Oulipo.n_plus(7, play, dictionary)  # => "What, jealous Oberon! Fallacies, skulk hence:
+                                    #     I have forsworn his bedroom and compensation."
+ 
+```
+
+Oulipo includes a handy `WordList` class for reading one-word-per-line dictionary files, but a dictionary can be any object that responds to `index(word)`, `length`, and `[index]`.
+
+```ruby
+dictionary = %w{ iron gild mine gold ore paint cast lily }
+
+king_john = 'To gild refined gold, to paint the lily'
+
+Oulipo.n_plus(1, king_john, dictionary) # => 'To mine refined ore, to cast the iron'
+```
+
 ## Analysis
 
 Rudimentary analysis can be performed by using Oulipo's `Analysis` class.
@@ -152,6 +150,8 @@ analysis = Oulipo::Analysis.new(line, word_sets)
 
 analysis.identified(:nouns)      # => ['rose', 'name']
 analysis.identified(:adjectives) # => ['sweet']
+
+analysis.deconstruction # => ["A ", ["rose", :nouns], " by any other ", ["name", :nouns], " would smell as ", ["sweet", :adjectives]]
 ```
 
 ## Substitution
@@ -167,4 +167,4 @@ substitutor.replace(:nouns).increment(1) # => "A bear by any other rose would sm
 
 ---
 
-- Pete Nicholls ([@Aupajo](http://twitter.com/Aupajo))
+Pete Nicholls ([@Aupajo](http://twitter.com/Aupajo))
