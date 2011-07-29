@@ -1,6 +1,5 @@
 module Oulipo
   class Analysis
-    include Oulipo::Proxiable
     include Enumerable
     
     attr_reader :original, :deconstruction, :word_lists
