@@ -84,7 +84,7 @@ poem = <<-WORDS
 
 WORDS
 
-Oulipo.snowball? poem # => true
+Oulipo.snowball?(poem) # => true
 ```
 
 ## Alliteration
@@ -100,7 +100,7 @@ Normal alliteration's a little harsh, so you can give it a threshold, too.
 ```ruby
 phrase = 'quick queens quibble over quails'
 
-Oulipo.allitertivity(phrase) # => 0.8 (4/5 words start with 'q')
+Oulipo.alliterativity(phrase) # => 0.8 (4/5 words start with 'q')
 Oulipo.alleration?(phrase, :threshold => 0.7) # => true 
 Oulipo.alleration?(phrase, :threshold => 0.9) # => false
 ```
