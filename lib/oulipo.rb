@@ -1,3 +1,7 @@
+require 'oulipo/word_list'
+require 'oulipo/analysis'
+require 'oulipo/substitutor'
+
 module Oulipo
   ALPHABET = 'a'..'z'
   VOWELS = %w{ a e i o u }
@@ -65,5 +69,11 @@ module Oulipo
     
     most_used_count = leading_letter_counts.max_by { |kv| kv.last }.pop
     most_used_count.to_f / words.length
+  end
+  
+  def self.n_plus(places, text, word_list)
+    analysis = Analysis.new(text, :nouns => word_list)
+    substitutor = Substitutor.new(analysis)
+    substitutor.replace(:nouns).increment(places)
   end
 end
