@@ -1,4 +1,3 @@
-require 'oulipo/proxiable'
 require 'oulipo/word_list'
 require 'oulipo/analysis'
 require 'oulipo/substitutor'
