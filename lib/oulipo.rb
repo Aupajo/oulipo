@@ -71,7 +71,9 @@ module Oulipo
     most_used_count.to_f / words.length
   end
   
-  def self.substitute_nouns(places, text, word_list)
-    
+  def self.n_plus(places, text, word_list)
+    analysis = Analysis.new(text, :nouns => word_list)
+    substitutor = Substitutor.new(analysis)
+    substitutor.replace(:nouns).increment(places)
   end
 end

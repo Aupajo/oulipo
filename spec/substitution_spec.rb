@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "substitution" do
   
+  let(:performer) { Oulipo }
+  
   let(:phrase) { 'The bear ate the badger' }
   let(:noun_list) { %w{ badger bat bear } }
   
@@ -16,6 +18,10 @@ describe "substitution" do
   
   it "raises an error if increment is called before replace" do
     lambda { substitutor.increment(3) }.should raise_error
+  end
+  
+  it "can be accessed from Oulipo" do
+    performer.n_plus(1, phrase, noun_list).should == 'The badger ate the bat'
   end
   
 end
