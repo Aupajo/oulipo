@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'oulipo/string_em_up'
 
 describe "chaterisms" do
   
@@ -33,12 +34,20 @@ describe "chaterisms" do
     Oulipo.chaterism?(snowball_poem).should == true
     Oulipo.chaterism?(diminishing_poem).should == true
     Oulipo.chaterism?(regular_poem).should == false
+    
+    snowball_poem.should be_chaterism
+    diminishing_poem.should be_chaterism
+    regular_poem.should_not be_chaterism
   end
   
   it "detects a snowball poem" do
     Oulipo.snowball?(snowball_poem).should == true
     Oulipo.snowball?(diminishing_poem).should == false
     Oulipo.snowball?(regular_poem).should == false
+    
+    snowball_poem.should be_snowball
+    diminishing_poem.should_not be_snowball
+    regular_poem.should_not be_snowball
   end
   
 end

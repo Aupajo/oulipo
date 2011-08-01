@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'oulipo/string_em_up'
 
 describe "substitution" do
   
@@ -23,11 +24,17 @@ describe "substitution" do
   it "raises an error if increment is called before replace" do
     lambda { substitutor.increment(3) }.should raise_error
   end
-  
+
   it "can be accessed from Oulipo with n_plus" do
     Oulipo.n_plus(1, phrase, noun_list).should == 'The badger ate the bat'
     Oulipo.n_plus(2, phrase, noun_list).should == 'The bat ate the bear'
     Oulipo.n_plus(6, phrase, noun_list).should == 'The bear ate the badger'
+  end
+
+  it "can be accessed from a string with n_plus" do
+    phrase.n_plus(1, noun_list).should == 'The badger ate the bat'
+    phrase.n_plus(2, noun_list).should == 'The bat ate the bear'
+    phrase.n_plus(6, noun_list).should == 'The bear ate the badger'
   end
   
   it "handles unused nouns" do

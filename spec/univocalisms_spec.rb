@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'oulipo/string_em_up'
 
 describe "univocalisms" do
   
@@ -23,6 +24,9 @@ describe "univocalisms" do
   it "detects a univocalism" do
     Oulipo.univocalism?(univocalism).should == true
     Oulipo.univocalism?(regular_poem).should == false
+    
+    univocalism.should be_univocalism
+    regular_poem.should_not be_univocalism
   end
   
 end

@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe Oulipo::Analysis do
-  include Oulipo
   
   let(:folksong) { "O'er the moor and among the heather" }
   
   let(:word_lists) { { :nouns => %w{ moor heather },
                        :prepositions => %w{ among } } }
   
-  let(:analysis) { Analysis.new(folksong, word_lists) }
+  let(:analysis) { Oulipo::Analysis.new(folksong, word_lists) }
   
   it "can identify words" do
     analysis.identified.sort.should == %w{ among heather moor }
