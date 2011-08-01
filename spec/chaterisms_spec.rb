@@ -31,23 +31,18 @@ describe "chaterisms" do
   }
   
   it "can detect both diminishing and growing chaterisms" do
-    Oulipo.chaterism?(snowball_poem).should == true
-    Oulipo.chaterism?(diminishing_poem).should == true
-    Oulipo.chaterism?(regular_poem).should == false
-    
     snowball_poem.should be_chaterism
     diminishing_poem.should be_chaterism
     regular_poem.should_not be_chaterism
   end
   
   it "detects a snowball poem" do
-    Oulipo.snowball?(snowball_poem).should == true
-    Oulipo.snowball?(diminishing_poem).should == false
-    Oulipo.snowball?(regular_poem).should == false
-    
     snowball_poem.should be_snowball
     diminishing_poem.should_not be_snowball
     regular_poem.should_not be_snowball
   end
   
+  it "is accessible via Oulipo" do
+    Oulipo.should forward_to_enhanced_string(:chaterism?, :snowball?)
+  end
 end
