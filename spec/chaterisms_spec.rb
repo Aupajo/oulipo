@@ -2,9 +2,6 @@ require 'spec_helper'
 
 describe "chaterisms" do
   
-  # For easy switching
-  let(:performer) { Oulipo }
-  
   let(:snowball_poem) do
     <<-POEM
       The
@@ -33,15 +30,15 @@ describe "chaterisms" do
   }
   
   it "can detect both diminishing and growing chaterisms" do
-    performer.chaterism?(snowball_poem).should == true
-    performer.chaterism?(diminishing_poem).should == true
-    performer.chaterism?(regular_poem).should == false
+    Oulipo.chaterism?(snowball_poem).should == true
+    Oulipo.chaterism?(diminishing_poem).should == true
+    Oulipo.chaterism?(regular_poem).should == false
   end
   
   it "detects a snowball poem" do
-    performer.snowball?(snowball_poem).should == true
-    performer.snowball?(diminishing_poem).should == false
-    performer.snowball?(regular_poem).should == false
+    Oulipo.snowball?(snowball_poem).should == true
+    Oulipo.snowball?(diminishing_poem).should == false
+    Oulipo.snowball?(regular_poem).should == false
   end
   
 end

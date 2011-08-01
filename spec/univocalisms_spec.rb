@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe "univocalisms" do
   
-  let(:performer) { Oulipo }
-  
   let(:univocalism) {
     <<-POEM
       No cool monsoons blow soft on Oxford dons,
@@ -23,8 +21,8 @@ describe "univocalisms" do
   }
   
   it "detects a univocalism" do
-    performer.univocalism?(univocalism).should == true
-    performer.univocalism?(regular_poem).should == false
+    Oulipo.univocalism?(univocalism).should == true
+    Oulipo.univocalism?(regular_poem).should == false
   end
   
 end

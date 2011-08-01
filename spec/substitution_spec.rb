@@ -10,8 +10,6 @@ describe "substitution" do
     Oulipo::Substitutor.new analysis_with(*args)
   end
   
-  let(:performer) { Oulipo }
-  
   let(:phrase) { 'The bear ate the badger' }
   let(:noun_list) { %w{ badger bat bear } }
   let(:substitutor) { substitutor_with(phrase, :nouns => noun_list) }
@@ -27,9 +25,9 @@ describe "substitution" do
   end
   
   it "can be accessed from Oulipo with n_plus" do
-    performer.n_plus(1, phrase, noun_list).should == 'The badger ate the bat'
-    performer.n_plus(2, phrase, noun_list).should == 'The bat ate the bear'
-    performer.n_plus(6, phrase, noun_list).should == 'The bear ate the badger'
+    Oulipo.n_plus(1, phrase, noun_list).should == 'The badger ate the bat'
+    Oulipo.n_plus(2, phrase, noun_list).should == 'The bat ate the bear'
+    Oulipo.n_plus(6, phrase, noun_list).should == 'The bear ate the badger'
   end
   
   it "handles unused nouns" do
