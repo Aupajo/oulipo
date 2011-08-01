@@ -137,7 +137,7 @@ Oulipo includes a handy `WordList` class for reading one-word-per-line dictionar
 ```ruby
 dictionary = %w{ iron gild mine gold ore paint cast lily }
 
-king_john = "To gild refined gold, to paint the lily'
+king_john = "To gild refined gold, to paint the lily"
 
 Oulipo.n_plus(1, king_john, dictionary) # => 'To mine refined ore, to cast the iron'
 ```
