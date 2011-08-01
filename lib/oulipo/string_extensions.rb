@@ -2,6 +2,7 @@ module Oulipo
   module StringExtensions
     ALPHABET = 'a'..'z'
     VOWELS = %w{ a e i o u }
+    ASCENDERS_AND_DESCENDERS = %w{ b d f g h j k l p q t y }
     
     # Whether the string uses alliteration or not.
     # Accepts a :threshold option for determining whether the string
@@ -48,7 +49,6 @@ module Oulipo
     
     # Returns true if only one vowel is used
     def univocalism?
-      present_letters = self.downcase.split('').uniq
       (VOWELS - present_letters).length == 4
     end
     
@@ -67,9 +67,12 @@ module Oulipo
     
     # Returns an array of letters that are absent
     def absent_letters
-      present_letters = self.downcase.split('').uniq
-      missing_letters = ALPHABET.to_a - present_letters
-      missing_letters.empty? ? nil : missing_letters
+      remaining = ALPHABET.to_a - present_letters
+      remaining.empty? ? nil : remaining
+    end
+    
+    def present_letters
+      self.downcase.gsub(/[^a-z]/, '').split('').uniq.sort
     end
     
     # Returns true if all letters of the alphabet are used
@@ -80,6 +83,11 @@ module Oulipo
     # Returns true if not all of the letters of the alphabet are used
     def lipogram?
       !self.pangram?
+    end
+    
+    # Returns true if no letters are ascenders (b, d, f, g, h, j, k, l) or descenders (p, q, t, y)
+    def prisoner?
+      (ASCENDERS_AND_DESCENDERS & present_letters).empty?
     end
     
   end

@@ -14,7 +14,7 @@ Install with `gem install oulipo` and `require 'oulipo'` as needed.
 
 Oulipo can detect lipograms and pangrams.
 
-A lipogram willfully shuns one or more letters of the alphabet.
+A **lipogram** willfully shuns one or more letters of the alphabet.
 
 In the following snippet of a poem, every letter of the alphabet except 'e' is used:
 
@@ -32,7 +32,7 @@ Oulipo.lipogram?(stanza)      # => true
 Oulipo.absent_letters(stanza) # => ['e']
 ```
 
-In contrast, a pangram uses all the letters of the alphabet (often seen jumping lazy dogs):
+In contrast, a **pangram** uses all the letters of the alphabet (often seen jumping lazy dogs):
 
 ```ruby
 sentence = 'Big fjords vex quick waltz nymph.'
@@ -40,9 +40,17 @@ sentence = 'Big fjords vex quick waltz nymph.'
 Oulipo.pangram?(sentence) # => true
 ```
 
+The **prisoner's constraint**, also known as the **Macao constraint**, is a type of lipogram in which no letters can be ascenders (b, d, f, g, h, j, k, l) or descenders (p, q, t, y).
+
+```ruby
+line = "rain's music runs in rivers"
+
+Oulipo.prisoner?(line) # => true
+```
+
 ## Univocalims
 
-A univocalism is a poem written using only one type of vowel.
+A **univocalism** is a poem written using only one type of vowel.
 
 ```ruby
 poem = <<-POEM
@@ -57,7 +65,7 @@ Oulipo.univocalism?(poem) # => true
 
 ## Palindromes
 
-Palindromes read the same way, backwards or forwards:
+**Palindromes** read the same way, backwards or forwards:
 
 ```ruby
 Oulipo.palindrome?('Eva, can I stab bats in a cave?') # => true
@@ -65,7 +73,7 @@ Oulipo.palindrome?('Eva, can I stab bats in a cave?') # => true
 
 ## Chaterisms
 
-A chaterism is a poem where either each successive word in the poem grows by one letter (also known as "snowball poem") or shrinks by one letter.
+A **chaterism** is a poem where either each successive word in the poem grows by one letter (also known as "snowball poem") or shrinks by one letter.
 
 ```ruby
 Oulipo.chaterism? 'Ruby loves poetry!'      # => true
@@ -107,7 +115,7 @@ Oulipo.alliteration?(phrase, :threshold => 0.9) # => false
 
 ## N+7
 
-In N+7 (sometimes known as S+7), each noun in a text is replaced with the noun seven entries after it in a dictionary.
+In **N+7** (sometimes known as **S+7**), each noun in a text is replaced with the noun seven entries after it in a dictionary.
 
 ```ruby
 dictionary = Oulipo::WordList.load('big_list_of_nouns.txt')
@@ -134,7 +142,7 @@ king_john = 'To gild refined gold, to paint the lily'
 Oulipo.n_plus(1, king_john, dictionary) # => 'To mine refined ore, to cast the iron'
 ```
 
-## Extending String
+## String Extensions
 
 You can optionally extend `String`, if you need to.
 

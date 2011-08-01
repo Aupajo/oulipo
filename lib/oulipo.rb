@@ -8,7 +8,7 @@ module Oulipo
   
   [:absent_letters, :pangram?, :lipogram?, :chaterism?,
    :univocalism?, :snowball?, :palindrome?, :alliteration?,
-   :alliterativity].each do |method|
+   :alliterativity, :present_letters, :prisoner?].each do |method|
       define_singleton_method(method.to_sym) do |*args|
         EnhancedString.new(args.shift).send(method.to_sym, *args)
       end
