@@ -8,7 +8,7 @@ It's still young, and very much liable to change.
 
 The real [Oulipo](http://en.wikipedia.org/wiki/Oulipo) is a gathering of writers and mathmeticians who seek to create works using constrained writing techniques.
 
-Install with `gem install oulipo`.
+Install with `gem install oulipo` and `require 'oulipo'` as needed.
 
 ## Lipograms and Pangrams
 
@@ -101,8 +101,8 @@ Normal alliteration's a little harsh, so you can give it a threshold, too.
 phrase = 'quick queens quibble over quails'
 
 Oulipo.alliterativity(phrase) # => 0.8 (4/5 words start with 'q')
-Oulipo.alleration?(phrase, :threshold => 0.7) # => true 
-Oulipo.alleration?(phrase, :threshold => 0.9) # => false
+Oulipo.alliteration?(phrase, :threshold => 0.7) # => true 
+Oulipo.alliteration?(phrase, :threshold => 0.9) # => false
 ```
 
 ## N+7
@@ -132,6 +132,25 @@ dictionary = %w{ iron gild mine gold ore paint cast lily }
 king_john = 'To gild refined gold, to paint the lily'
 
 Oulipo.n_plus(1, king_john, dictionary) # => 'To mine refined ore, to cast the iron'
+```
+
+## Extending String
+
+You can optionally extend `String`, if you need to.
+
+```ruby
+require 'oulipo/string_em_up'
+
+"Sator arepo tenet opera rotas".palindrome? # => true
+"Waltz, bad nymph, for quick jigs vex!".pangram? # => true
+'To gild refined gold'.n_plus(7, nouns) # ... as above
+```
+
+If you'd like to use the neat short-hand, but don't want to touch `String`, you might want to use an `EnhancedString`.
+
+```ruby
+palindrome = Oulipo::EnhancedString.new("Sator arepo tenet opera rotas")
+palindrome.lipogram? # => true
 ```
 
 ## Analysis
