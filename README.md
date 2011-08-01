@@ -137,7 +137,7 @@ Oulipo includes a handy `WordList` class for reading one-word-per-line dictionar
 ```ruby
 dictionary = %w{ iron gild mine gold ore paint cast lily }
 
-king_john = 'To gild refined gold, to paint the lily'
+king_john = "To gild refined gold, to paint the lily'
 
 Oulipo.n_plus(1, king_john, dictionary) # => 'To mine refined ore, to cast the iron'
 ```
@@ -151,7 +151,7 @@ require 'oulipo/string_em_up'
 
 "Sator arepo tenet opera rotas".palindrome? # => true
 "Waltz, bad nymph, for quick jigs vex!".pangram? # => true
-'To gild refined gold'.n_plus(7, nouns) # ... as above
+"To gild refined gold".n_plus(7, nouns) # ... as above
 ```
 
 If you'd like to use the neat short-hand, but don't want to touch `String`, you might want to use an `EnhancedString`.
